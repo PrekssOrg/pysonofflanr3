@@ -162,7 +162,7 @@ class SonoffLANModeClient:
             return
 
         info = zeroconf.get_service_info(type, name)
-        found_ip = utils.parseAddress(info.address)
+        found_ip = utils.parseAddress(info.addresses[0])
         self.set_url(found_ip, str(info.port))
 
         # Useful optimsation for 0.24.1 onwards (fixed in 0.24.5 though)
